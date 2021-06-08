@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/screens/project_detail.dart';
 import 'package:portfolio/utilities/constants.dart';
+import 'package:portfolio/utilities/helpers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -10,6 +12,7 @@ class ProjectCard extends StatelessWidget {
   final List<String> tags;
   final String? visitLink;
   final String? callToAction;
+  final String? github;
 
   const ProjectCard({
     Key? key,
@@ -19,6 +22,7 @@ class ProjectCard extends StatelessWidget {
     this.tags = const [],
     this.visitLink,
     this.callToAction,
+    this.github,
   }) : super(key: key);
 
   @override
@@ -121,25 +125,35 @@ class ProjectCard extends StatelessWidget {
                     child: const Text('PREVIEW'),
                   ),
                   if (visitLink != null)
-                    Row(children: [
-                      const SizedBox(width: 8.0),
-                      ElevatedButton(
-                        onPressed: () async {
-                          final launchable = await canLaunch(visitLink!);
-                          if (launchable) {
-                            await launch(visitLink!);
-                          }
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            kBlueColor,
+                    Row(
+                      children: [
+                        const SizedBox(width: 8.0),
+                        ElevatedButton(
+                          onPressed: () async {
+                            final launchable = await canLaunch(visitLink!);
+                            if (launchable) {
+                              await launch(visitLink!);
+                            }
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              kBlueColor,
+                            ),
                           ),
-                        ),
-                        child: Text(
-                          callToAction ?? 'VISIT',
-                        ),
-                      )
-                    ])
+                          child: Text(
+                            callToAction ?? 'VISIT',
+                          ),
+                        )
+                      ],
+                    ),
+                  if (github != null)
+                    IconButton(
+                      onPressed: () => openUrl(github!),
+                      icon: const FaIcon(
+                        FontAwesomeIcons.github,
+                        color: kBlueColor,
+                      ),
+                    ),
                 ],
               ),
             ),

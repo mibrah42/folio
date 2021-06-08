@@ -145,6 +145,7 @@ class HomeScreen extends StatelessWidget {
                   description: 'Pokemon explorer built with Flutter',
                   visitLink: "https://pokedexweb.surge.sh",
                   tags: ['flutter', 'dart'],
+                  github: "https://github.com/mibrah42/pokedex",
                 ),
                 ProjectCard(
                   imageUrl: "assets/projects/small/cryptospace.png",
@@ -152,12 +153,14 @@ class HomeScreen extends StatelessWidget {
                   description: 'Cryptocurrency Tracker',
                   visitLink: "https://cryptospace.surge.sh",
                   tags: ['flutter', 'dart'],
+                  github: "https://github.com/mibrah42/cryptospace",
                 ),
                 ProjectCard(
                   imageUrl: "assets/projects/small/notable.png",
                   title: 'Notable',
                   description: 'Note-taking made simple',
                   tags: ['flutter', 'dart', 'hive'],
+                  github: "https://github.com/mibrah42/notable",
                 ),
                 ProjectCard(
                   imageUrl: "assets/projects/small/chatly.png",
@@ -165,6 +168,7 @@ class HomeScreen extends StatelessWidget {
                   description: 'Real-time chat',
                   visitLink: "https://chatly.surge.sh/",
                   tags: ['flutter', 'dart', 'firebase'],
+                  github: "https://github.com/mibrah42/chatly",
                 ),
               ],
             ),

@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/constants.dart';
 import 'package:portfolio/widgets/project_card.dart';
 
+import 'data/projects.dart';
+import 'models/project.dart';
 import 'utilities/helpers.dart';
 import 'widgets/programming_language_card.dart';
 
@@ -138,39 +140,18 @@ class HomeScreen extends StatelessWidget {
               alignment: WrapAlignment.spaceEvenly,
               runSpacing: 16,
               spacing: 16,
-              children: const [
-                ProjectCard(
-                  imageUrl: "assets/projects/small/pokedex.png",
-                  title: 'Pokedex',
-                  description: 'Pokemon explorer built with Flutter',
-                  visitLink: "https://pokedexweb.surge.sh",
-                  tags: ['flutter', 'dart'],
-                  github: "https://github.com/mibrah42/pokedex",
-                ),
-                ProjectCard(
-                  imageUrl: "assets/projects/small/cryptospace.png",
-                  title: 'CryptoSpace',
-                  description: 'Cryptocurrency Tracker',
-                  visitLink: "https://cryptospace.surge.sh",
-                  tags: ['flutter', 'dart'],
-                  github: "https://github.com/mibrah42/cryptospace",
-                ),
-                ProjectCard(
-                  imageUrl: "assets/projects/small/notable.png",
-                  title: 'Notable',
-                  description: 'Note-taking made simple',
-                  tags: ['flutter', 'dart', 'hive'],
-                  github: "https://github.com/mibrah42/notable",
-                ),
-                ProjectCard(
-                  imageUrl: "assets/projects/small/chatly.png",
-                  title: 'Chatly',
-                  description: 'Real-time chat',
-                  visitLink: "https://chatly.surge.sh/",
-                  tags: ['flutter', 'dart', 'firebase'],
-                  github: "https://github.com/mibrah42/chatly",
-                ),
-              ],
+              children: projects
+                  .map(
+                    (Project project) => ProjectCard(
+                      imageUrl: project.imageUrl,
+                      title: project.title,
+                      description: project.description,
+                      visitLink: project.visitLink,
+                      tags: project.tags,
+                      github: project.github,
+                    ),
+                  )
+                  .toList(),
             ),
           ),
         ],

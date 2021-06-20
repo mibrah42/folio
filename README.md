@@ -96,12 +96,16 @@ iOS (info.plist)
 
 Android (AndroidManifest.xml)
 ```
- <queries>
-    <intent>
-        <action android:name="android.intent.action.VIEW" />
-        <data android:scheme="https" />
-    </intent>
-  </queries>
+<queries>
+  <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="https" />
+  </intent>
+  <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="http" />
+  </intent>
+</queries>
 ```
 
 ### Code 
